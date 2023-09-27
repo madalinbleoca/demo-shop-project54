@@ -1,2 +1,4 @@
-package com.example.demoshopproject54.service;public interface CustomerService {
+package com.example.demoshopproject54.service;
+
+public interface CustomerService {
 }

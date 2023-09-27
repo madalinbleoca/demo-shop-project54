@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name="products")
 @Data
@@ -29,5 +31,7 @@ public class Product {
     @Column(nullable = false)
     private String category;  // it's ok with ENUM if you want
 
+    @ManyToMany(mappedBy = "products")
+    private List<Order> orders;
 
 }
