@@ -23,8 +23,8 @@ public class OrderController {
     }
 
     @GetMapping("getOrderById/{id}")
-    public ResponseEntity<Order> readProductById(@PathVariable Long id) {
-        Order orderFromDB = orderService.getOrderById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id " + id +
+    public ResponseEntity<Order> readOrderById(@PathVariable Long id) {
+        Order orderFromDB = orderService.getOrderById(id).orElseThrow(() -> new ResourceNotFoundException("Order with id " + id +
                 " doesn't exist in DB"));
 
         return new ResponseEntity<>(orderFromDB, HttpStatus.OK);
@@ -58,10 +58,10 @@ public class OrderController {
     @DeleteMapping("/deleteOrderById/{id}")
     public ResponseEntity<?> removeOrderByID(@PathVariable Long id) {
         Order orderFromDb = orderService.getOrderById(id).orElseThrow(() -> new ResourceNotFoundException("Order with id " + id
-        + " dosen't exist in DB"));
+        + " doesn't exist in DB"));
 
         orderService.deleteOrderById(id);
-        return new ResponseEntity<>("Product with id " + id + " Was deleted!", HttpStatus.OK);
+        return new ResponseEntity<>("Order with id " + id + " Was deleted!", HttpStatus.OK);
     }
 
 }
